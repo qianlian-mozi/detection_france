@@ -16,7 +16,7 @@ You could install these environmet from the document [https://mmdetection.readth
 
 The log file is uploaded as '20231016_173555.log', the result shows the detector can perform bbox/map:0.2890 in visdrone. We use the coco metric to evaluate the performence, for more result, please check the file '20231016_173555.log'.
 
-To test the model, download our trained model [], use the cfg file 'dino-5scale_swin-t_8xb2-12e_coco.py', and make sure the visdrone dataset is already changed to the right coco_format, or you can directly download it from here [], put the dataset int the main root. Use the sentence like this:
+To test the model, download our trained model [https://drive.google.com/file/d/11mqZG0BXz0VnuKIITShxio8obpN7NuSA/view?usp=sharing], use the cfg file 'dino-5scale_swin-t_8xb2-12e_coco.py', and make sure the visdrone dataset is already changed to the right coco_format, or you can directly download it from here [https://drive.google.com/file/d/11oDTRjruaKy69Yyb3DpNxySQO84aVsu8/view?usp=sharing], put the dataset int the main root. Use the sentence like this:
 python tools/test.py dino-5scale_swin-t_8xb2-12e_coco.py epoch_12.pth 
 
 To train the model, use the sentence like this:
