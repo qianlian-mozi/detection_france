@@ -10,6 +10,7 @@ To use this project,make sure with this environment:
 3.mmcv==2.0.1
 
 You could install these environmet from the document [https://mmdetection.readthedocs.io/en/latest/get_started.html] or follow the steps below:
+(0.before we sucessfully upload the main documents,you can still get the files from here [https://drive.google.com/file/d/11g1zs3MlLLsMOcNgRyEBio0zAK7MSU8B/view?usp=sharing], note that we changes many files different from the official repo, so you may not easily download it from offical repo.)
 1.pip install openmim
 2.cd mmdetection
 2.mim install -v -e .
