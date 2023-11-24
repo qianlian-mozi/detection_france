@@ -5,6 +5,7 @@ Drone-captured image's object detection with transformer-based bakcbone and dete
 This is the project work of computer secience lesson in France.
 
 To use this project,make sure with this environment:
+0.PyTorch==1.11.0+cu113
 1.mmdetection==v3.1.0
 2.mmengine==v0.8.4
 3.mmcv==2.0.1
