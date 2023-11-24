@@ -13,7 +13,7 @@ To use this project,make sure with this environment:
 You could install these environmet from the document [https://mmdetection.readthedocs.io/en/latest/get_started.html] or follow the steps below:
 (0.before we sucessfully upload the main documents,you can still get the files from here [https://drive.google.com/file/d/11g1zs3MlLLsMOcNgRyEBio0zAK7MSU8B/view?usp=sharing], note that we changes many files different from the official repo, so you may not easily download it from offical repo.)
 1.pip install openmim
-2.cd mmdetection
+2.cd detection_france
 2.mim install -v -e .
 
 The log file is uploaded as '20231016_173555.log', the result shows the detector can perform bbox/map:0.2890 in visdrone. We use the coco metric to evaluate the performence, for more result, please check the file '20231016_173555.log'.The whole detector contains the swintiny as a backbone and the dino as a head. We changes some faults caused by the dimention.
