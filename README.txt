@@ -24,3 +24,5 @@ python tools/test.py dino-5scale_swin-t_8xb2-12e_coco.py epoch_12.pth
 To train the model, use the sentence like this:
 python tools/train.py dino-5scale_swin-t_8xb2-12e_coco.py
 
+We uploads some examples to the folder [output],and show them in the jupyternotebook [showresultinjupyter.ipynb], or you can check directly in the output/vis dict.
+
