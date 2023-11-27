@@ -26,5 +26,5 @@ python tools/train.py dino-5scale_swin-t_8xb2-12e_coco.py
 
 We uploads some examples to the folder [output],and show them in the jupyternotebook [showresultinjupyter.ipynb], or you can check directly in the output/vis dict.
 
-We upload a GUI.py file to give a simple GUI interface function that we learned in this term. The lib is quite similar as pyqt5 but looks better.
+We upload a GUI.py file to give a simple GUI interface function that we learned in this term. The lib is quite similar as pyqt5 but looks better.You can easily use it buy the window, choose a config file, a checkpoint pth file and a img file, you can find the result create in your dict:./out/vis/[your img name], and also showed in the GUI window!
 
