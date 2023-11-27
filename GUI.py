@@ -1,14 +1,15 @@
 import io
 import os
 import PySimpleGUI as sg
-from PIL import Image
+import PIL
 import numpy as np
 import warnings
 import mmcv
 import torch
 warnings.filterwarnings("ignore")
-from mmdet.apis import (async_inference_detector, inference_detector,
-                        init_detector, show_result_pyplot)
+# from mmdet.apis import (async_inference_detector, inference_detector,
+#                         init_detector, show_result_pyplot)
+from mmdet.apis import DetInferencer
 
 config_file = r"./dino-5scale_swin-t_8xb2-12e_coco.py"
 ckpt_file = r"./epoch_12.pth"
@@ -27,7 +28,7 @@ def main():
         [sg.Text('model checkpoint',size=(16,1), auto_size_text=False), sg.In(ckpt_file,size=(80,1), key='ckpt'), sg.FileBrowse()],
 		[sg.Text('Path to image',size=(16,1)), sg.In(img_file,size=(80,1), key='image'), sg.FileBrowse()],
         
-		[sg.Text('Device',size=(16,1)), sg.Combo(['cuda:0','cpu'],default_value='cpu',key='device')],
+		[sg.Text('Device',size=(16,1)), sg.Combo(['cuda:0','cpu'],default_value='cuda:0',key='device')],
 		[sg.Text('Score threshold',size=(16,1)), sg.Slider(range=(0,1), orientation='h', resolution=0.1, default_value=0.3, size=(15,15), key='threshold')],
 		[sg.OK('Detect'), sg.Exit()],
         
@@ -53,7 +54,7 @@ def main():
 
         if os.path.exists(input_img):
                 # image = Image.open(input_img)
-                image = Image.open(input_img)
+                image = PIL.Image.open(input_img)
                 image.thumbnail((height,width))
                 bio = io.BytesIO()
                 image.save(bio, format="PNG")
@@ -64,13 +65,20 @@ def main():
 
         if event == "Detect":
 
-            model = init_detector(config, ckpt, device=device)
-            result = inference_detector(model, input_img)
-            out = 'detect.png'
-            show_result_pyplot(model, input_img, result, score_thr=score_thr, out_file=out)
+            # model = init_detector(config, ckpt, device=device)
+            # result = inference_detector(model, input_img)
+            # out = 'detect.png'
+            # show_result_pyplot(model, input_img, result, score_thr=score_thr, out_file=out)
+            
+            inferencer = DetInferencer(config, ckpt, device)
+            # out = 'detect.png'
+            result = inferencer(input_img, pred_score_thr=score_thr, out_dir='out')
+            outputimg = os.path.basename(input_img)
+            outimg = 'out/vis/' + outputimg
+            
             
             # image = Image.fromarray(img)
-            image = Image.open(out)
+            image = PIL.Image.open(outimg)
             image.thumbnail((height,width))
             bio = io.BytesIO()
             image.save(bio, format="PNG")
