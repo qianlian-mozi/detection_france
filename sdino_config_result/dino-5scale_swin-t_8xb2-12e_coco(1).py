@@ -31,7 +31,7 @@ launcher = 'none'
 load_from = None
 log_level = 'INFO'
 log_processor = dict(by_epoch=True, type='LogProcessor', window_size=50)
-max_epochs = 12
+max_epochs = 24
 model = dict(
     as_two_stage=True,
     backbone=dict(
@@ -152,7 +152,7 @@ param_scheduler = [
     dict(
         begin=0,
         by_epoch=True,
-        end=12,
+        end=24,
         gamma=0.1,
         milestones=[
             11,
@@ -228,7 +228,7 @@ test_pipeline = [
         ),
         type='PackDetInputs'),
 ]
-train_cfg = dict(max_epochs=12, type='EpochBasedTrainLoop', val_interval=1)
+train_cfg = dict(max_epochs=24, type='EpochBasedTrainLoop', val_interval=1)
 train_dataloader = dict(
     batch_sampler=dict(type='AspectRatioBatchSampler'),
     batch_size=2,
@@ -587,5 +587,6 @@ visualizer = dict(
     type='DetLocalVisualizer',
     vis_backends=[
         dict(type='LocalVisBackend'),
+        dict(type='TensorboardVisBackend'),
     ])
-work_dir = 'dino_swin_img'
+work_dir = 'dino_swin_imgrererere'
